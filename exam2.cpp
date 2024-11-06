@@ -14,7 +14,7 @@ void Cube(GLdouble width, GLdouble height, GLdouble depth) {
 
 void Cone(GLdouble base, GLdouble height, GLint slices, GLint stacks) {
     glPushMatrix();
-    glTranslatef(0.0f, height / 2, 0.0f); // Перемещение в центр по высоте
+    glTranslatef(0.0f, height / 2, 0.0f); 
     glutWireCone(base, height, slices, stacks);
     glPopMatrix();
 }
@@ -53,22 +53,22 @@ void special(int key, int, int) {
 
 void keyboard(unsigned char key, int, int) {
     switch (key) {
-        case 'a':  // Move left leg forward
+        case 'a':
             if (leftLegAngle < 45) leftLegAngle += 5;
             break;
-        case 's':  // Move left leg backward
+        case 's': 
             if (leftLegAngle > -45) leftLegAngle -= 5;
             break;
-        case 'w':  // Move right leg forward
+        case 'w':  
             if (rightLegAngle < 45) rightLegAngle += 5;
             break;
-        case 'd':  // Move right leg backward
+        case 'd': 
             if (rightLegAngle > -45) rightLegAngle -= 5;
             break;
-        case 'q':  // Rotate robot left
+        case 'q':  
             robotRotationAngle += 5;
             break;
-        case 'e':  // Rotate robot right
+        case 'e': 
             robotRotationAngle -= 5;
             break;
         default:
@@ -82,14 +82,12 @@ void display() {
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
-  // Rotate the entire robot
   glRotatef((GLfloat)robotRotationAngle, 0.0, 1.0, 0.0);
 
-  // Torso
   glColor3f(0.5, 0.5, 0.5);
   Cube(1.0, 2.0, 0.5);
 
-  // Right Arm 
+  // Правая рука 
   glPushMatrix();
   glTranslatef(0.5, 1.0, 0.0);
   glRotatef((GLfloat)rightShoulderAngle, 0.0, 0.0, 1.0);
@@ -104,7 +102,7 @@ void display() {
   Cube(1.0, 0.3, 0.5);
   glPopMatrix();
 
-  // Left Arm 
+  // Левая рука
   glPushMatrix();
   glTranslatef(-0.5, 1.0, 0.0);
   glRotatef((GLfloat)leftShoulderAngle, 0.0, 0.0, 1.0);
@@ -119,14 +117,14 @@ void display() {
   Cube(1.0, 0.3, 0.5);
   glPopMatrix();
 
-  // Head
+  // Голова
   glPushMatrix();
   glTranslatef(0.0, 2.0, 0.0);
   glColor3f(1.0, 0.8, 0.6);
   glutWireSphere(0.5, 10, 10);
   glPopMatrix();
 
-  // Left Leg
+  // Левая нога
   glPushMatrix();
   glTranslatef(-0.3, -1.5, 0.0);
   glRotatef((GLfloat)leftLegAngle, 1.0, 0.0, 0.0);
@@ -134,7 +132,7 @@ void display() {
   Cube(0.3, 1.0, 0.3);
   glPopMatrix();
 
-  // Right Leg
+  // Правая нога
   glPushMatrix();
   glTranslatef(0.3, -1.5, 0.0);
   glRotatef((GLfloat)rightLegAngle, 1.0, 0.0, 0.0);
@@ -142,19 +140,19 @@ void display() {
   Cube(0.3, 1.0, 0.3);
   glPopMatrix();
 
-  // Cube 
+  // Куб
   glPushMatrix();
-  glTranslatef(2.0, -1.5, 0.0); // Опускаем куб еще ниже
-  glColor3f(0.8, 0.2, 0.2); // Цвет куба
-  Cube(1.0, 1.0, 1.0); // Размеры куба
+  glTranslatef(2.0, -1.5, 0.0); 
+  glColor3f(0.8, 0.2, 0.2);
+  Cube(1.0, 1.0, 1.0); 
   glPopMatrix();
 
-  // Cone on top of the cube
+  // Конус
   glPushMatrix();
-  glTranslatef(2.0, -1.0, 0.0); // Размещаем конус на верхней грани куба
-  glRotatef(270, 1.0, 0.0, 0.0); // Поворачиваем конус на 180 градусов
-  glColor3f(0.2, 0.8, 0.2); // Цвет конуса
-  Cone(0.5, 1.0, 10, 10); // Размеры конуса
+  glTranslatef(2.0, -1.0, 0.0); 
+  glRotatef(270, 1.0, 0.0, 0.0); 
+  glColor3f(0.2, 0.8, 0.2); 
+  Cone(0.5, 1.0, 10, 10);
   glPopMatrix();
 
   glPopMatrix();
