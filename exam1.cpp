@@ -29,7 +29,7 @@ bool initGL()
 void drawCircle(float x, float y, float radius, int segments)
 {
     glBegin(GL_TRIANGLE_FAN);
-    glVertex2f(x, y); // Центр круга
+    glVertex2f(x, y); 
     for (int i = 0; i <= segments; i++)
     {
         float angle = 2.0f * 3.14159f * i / segments;
@@ -69,23 +69,23 @@ void drawPetal(float x, float y, float angle)
 
 void drawFlower(float x, float y)
 {
-    glColor3f(1.0f, 0.0f, 0.0f); // Красный цвет для лепестков
+    glColor3f(1.0f, 0.0f, 0.0f);
     for (int i = 0; i < 5; i++) {
-        float angle = i * 2.0f * M_PI / 5; // Угол для каждого лепестка
+        float angle = i * 2.0f * M_PI / 5; 
         drawPetal(x, y, angle);
     }
 
     // Рисуем центр цветка
-    glColor3f(1.0f, 1.0f, 0.0f); // Желтый цвет для центра
+    glColor3f(1.0f, 1.0f, 0.0f); 
     drawCircle(x, y, 20.0f, 30);
 }
 void drawFish(float x, float y, float radius)
 {
     glBegin(GL_POLYGON);
-    glColor3f(1.f, 1.f, 1.f); // Белый цвет для рыбы
+    glColor3f(1.f, 1.f, 1.f);
     for (int i = 0; i < 5; i++)
     {
-        float angle = i * 4.0f * 3.14159f / 5.0f; // Расположение вершин пятиугольной звезды
+        float angle = i * 4.0f * 3.14159f / 5.0f; 
         glVertex2f(x + cos(angle) * radius, y + sin(angle) * radius);
     }
     glEnd();
@@ -95,8 +95,8 @@ void drawFish(float x, float y, float radius)
     float eyeOffsetY = radius * 0.3f;
     float eyeRadius = radius * 0.1f;
 
-    glColor3f(0.f, 0.f, 0.f); // Черный цвет для глаза
-    glBegin(GL_POLYGON); // Правый глаз
+    glColor3f(0.f, 0.f, 0.f); 
+    glBegin(GL_POLYGON); 
     for (int i = 0; i < 20; i++)
     {
         float angle = 2.0f * 3.14159f * i / 20;
@@ -112,7 +112,7 @@ void render()
     // Рисуем голову (круг)
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.3f, 0.f); 
-    glColor3f(1.f, 0.8f, 0.6f); // Цвет кожи
+    glColor3f(1.f, 0.8f, 0.6f);
     float radius = 30.0f;
     int numSegments = 100;
     glBegin(GL_POLYGON);
@@ -127,7 +127,7 @@ void render()
     // Рисуем шею (прямоугольник)
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 2.05f, 0.f);
-    glColor3f(1.f, 0.8f, 0.6f); // Цвет кожи для шеи
+    glColor3f(1.f, 0.8f, 0.6f); 
     glBegin(GL_QUADS);
         glVertex2f(-10.f, -10.f);
         glVertex2f(10.f, -10.f);
@@ -139,7 +139,7 @@ void render()
     // Рисуем тело (прямоугольник)
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 2.f, SCREEN_HEIGHT / 1.7f, 0.f); 
-    glColor3f(0.f, 0.f, 1.f); // Синий цвет 
+    glColor3f(0.f, 0.f, 1.f);  
     glBegin(GL_QUADS);
         glVertex2f(-20.f, -50.f);
         glVertex2f(20.f, -50.f);
@@ -178,7 +178,7 @@ void render()
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 2.f - 10.f, SCREEN_HEIGHT / 1.5f, 0.f); 
     glRotatef(20.f, 0.f, 0.f, 1.f); 
-    glColor3f(1.f, 0.f, 0.f); // Красный цвет для ног
+    glColor3f(1.f, 0.f, 0.f); 
     glBegin(GL_QUADS);
         glVertex2f(-10.f, 0.f);
         glVertex2f(10.f, 0.f);
@@ -191,7 +191,7 @@ void render()
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 2.f + 10.f, SCREEN_HEIGHT / 1.5f, 0.f); 
     glRotatef(-20.f, 0.f, 0.f, 1.f); 
-    glColor3f(1.f, 0.f, 0.f); // Красный цвет для ног
+    glColor3f(1.f, 0.f, 0.f);
     glBegin(GL_QUADS);
         glVertex2f(-10.f, 0.f);
         glVertex2f(10.f, 0.f);
@@ -203,7 +203,7 @@ void render()
     // Рисуем ствол дерева (прямоугольник)
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 4.f, SCREEN_HEIGHT / 1.7f, 0.f); 
-    glColor3f(0.55f, 0.27f, 0.07f); // Коричневый цвет для ствола
+    glColor3f(0.55f, 0.27f, 0.07f); 
     glBegin(GL_QUADS);
         glVertex2f(-10.f, -40.f);
         glVertex2f(10.f, -40.f);
@@ -215,7 +215,7 @@ void render()
     // Рисуем листву дерева (многоугольник)
     glPushMatrix();
     glTranslatef(SCREEN_WIDTH / 4.f, SCREEN_HEIGHT / 2.1f, 0.f); 
-    glColor3f(0.f, 0.5f, 0.f); // Зеленый цвет для листвы
+    glColor3f(0.f, 0.5f, 0.f); 
     glBegin(GL_POLYGON);
     int treeSegments = 8;
     float foliageRadius = 50.f;
@@ -228,13 +228,12 @@ void render()
     glPopMatrix();
 
     // Рисуем рыбы
-    drawFish(100.f, 100.f, 20.f);  // Звезда слева
-    drawFish(200.f, 80.f, 20.f);   // Звезда в центре
-    drawFish(300.f, 120.f, 20.f);  // Звезда справа
+    drawFish(100.f, 100.f, 20.f); 
+    drawFish(200.f, 80.f, 20.f);   
+    drawFish(300.f, 120.f, 20.f); 
 
-    drawFlower(SCREEN_WIDTH / 1.3f, SCREEN_HEIGHT / 2.0f); // Рисуем цветок в центре
-
-    // Обновить экран
+    drawFlower(SCREEN_WIDTH / 1.3f, SCREEN_HEIGHT / 2.0f);
+    
     glutSwapBuffers();
 }
 
