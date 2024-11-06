@@ -40,78 +40,78 @@ void display() {
     // Меркурий
     glPushMatrix();
     glRotatef((GLfloat)year, 0.0, 1.0, 0.0);
-    glTranslatef(1.5, 0.0, 0.0); // Расстояние до Меркурия
+    glTranslatef(1.5, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(0.5, 0.5, 0.5); // Серый 
+    glColor3f(0.5, 0.5, 0.5);
     myWireSphere(0.1, 15, 15); 
     glPopMatrix();
 
     // Венера
     glPushMatrix();
     glRotatef((GLfloat)year + 30, 0.0, 1.0, 0.0);
-    glTranslatef(2.0, 0.0, 0.0); // Расстояние до Венеры
+    glTranslatef(2.0, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(1.0, 0.5, 0.0); // Оранжевый 
+    glColor3f(1.0, 0.5, 0.0); 
     myWireSphere(0.2, 15, 15); 
     glPopMatrix();
 
     // Земля
     glPushMatrix();
     glRotatef((GLfloat)year + 60, 0.0, 1.0, 0.0);
-    glTranslatef(3.0, 0.0, 0.0); // Расстояние до Земли
+    glTranslatef(3.0, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(0.0, 0.5, 1.0); // Голубой
+    glColor3f(0.0, 0.5, 1.0); 
     myWireSphere(0.3, 15, 15); 
     glPopMatrix();
 
     // Марс
     glPushMatrix();
     glRotatef((GLfloat)year + 90, 0.0, 1.0, 0.0);
-    glTranslatef(4.0, 0.0, 0.0); // Расстояние до Марса
+    glTranslatef(4.0, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(1.0, 0.0, 0.0); // Красный
+    glColor3f(1.0, 0.0, 0.0);
     myWireSphere(0.2, 15, 15); 
     glPopMatrix();
 
     // Юпитер
     glPushMatrix();
     glRotatef((GLfloat)year + 120, 0.0, 1.0, 0.0);
-    glTranslatef(5.0, 0.0, 0.0); // Расстояние до Юпитера
+    glTranslatef(5.0, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(1.0, 0.7, 0.5); // Светло-коричневый
+    glColor3f(1.0, 0.7, 0.5);
     myWireSphere(0.5, 15, 15); 
     glPopMatrix();
 
     // Сатурн
     glPushMatrix();
     glRotatef((GLfloat)year + 150, 0.0, 1.0, 0.0);
-    glTranslatef(6.0, 0.0, 0.0); // Расстояние до Сатурна
+    glTranslatef(6.0, 0.0, 0.0);
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(1.0, 1.0, 0.5); //Светло-жёлтый
+    glColor3f(1.0, 1.0, 0.5); 
     myWireSphere(0.5, 15, 15); 
 
-    glColor3f(1.0, 1.0, 0.8); // Светло-серый
-    myRing(0.55, 0.75, 30); // Кольца Сатурна
+    glColor3f(1.0, 1.0, 0.8); 
+    myRing(0.55, 0.75, 30);
     glPopMatrix();
 
     // Уран
     glPushMatrix();
     glRotatef((GLfloat)year + 210, 0.0, 1.0, 0.0);
-    glTranslatef(7.0, 0.0, 0.0); // Расстояние до Урана
+    glTranslatef(7.0, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(0.5, 1.0, 1.0); // Голубой
+    glColor3f(0.5, 1.0, 1.0);
     myWireSphere(0.4, 15, 15); 
 
-    glColor3f(0.5, 0.7, 0.9); // Синий
-    myRing(0.45, 0.65, 30); // Кольца Урана
+    glColor3f(0.5, 0.7, 0.9); 
+    myRing(0.45, 0.65, 30); 
     glPopMatrix();
 
     // Нептун
     glPushMatrix();
     glRotatef((GLfloat)year + 240, 0.0, 1.0, 0.0);
-    glTranslatef(8.0, 0.0, 0.0); // Расстояние до Нептуна
+    glTranslatef(8.0, 0.0, 0.0); 
     glRotatef((GLfloat)day, 0.0, 1.0, 0.0);
-    glColor3f(0.0, 0.0, 1.0); // Светло-бирюзовый 
+    glColor3f(0.0, 0.0, 1.0); 
     myWireSphere(0.4, 15, 15); 
     glPopMatrix();
 
@@ -120,8 +120,8 @@ void display() {
     glutSwapBuffers();
 }
 
-static GLfloat u = 0.0; // Параметр для позиции кометы на кривой
-static GLfloat du = 0.05; // Инкремент для движения кометы
+static GLfloat u = 0.0; 
+static GLfloat du = 0.05;
 
 void timer(int v) {
     u += du;
